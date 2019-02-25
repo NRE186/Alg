@@ -1,0 +1,7 @@
+W:\C#\Alg\SLAU\SLAU\bin\Debug\SLAU.exe.config
+W:\C#\Alg\SLAU\SLAU\bin\Debug\SLAU.exe
+W:\C#\Alg\SLAU\SLAU\bin\Debug\SLAU.pdb
+W:\C#\Alg\SLAU\SLAU\obj\Debug\SLAU.csprojAssemblyReference.cache
+W:\C#\Alg\SLAU\SLAU\obj\Debug\SLAU.csproj.CoreCompileInputs.cache
+W:\C#\Alg\SLAU\SLAU\obj\Debug\SLAU.exe
+W:\C#\Alg\SLAU\SLAU\obj\Debug\SLAU.pdb
