@@ -16,6 +16,7 @@ namespace SLAU
             double[] x = new double[n];
             for (int i = 0; i < n; i++)
                 x[i] = 0;
+            Matrix.ShowMatrix(n, a, b, false);
             for (int k = 0; k < n - 1; k++)
             {
                 for (int i = k + 1; i < n; i++)
@@ -27,6 +28,7 @@ namespace SLAU
                     b[i] = b[i] - b[k] * a[i, k] / a[k, k];
                 }
             }
+            Matrix.ShowMatrix(n, a, b, false);
             for (int k = n - 1; k >= 0; k--)
             {
                 s = 0;

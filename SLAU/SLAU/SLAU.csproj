@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Gauss.cs" />
     <Compile Include="Matrix.cs" />
-    <Compile Include="Iter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

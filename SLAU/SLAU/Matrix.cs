@@ -8,16 +8,30 @@ namespace SLAU
 {
     class Matrix
     {
-        public static void ShowMatrix(int n, double[,] a, double[] b)
+        public static void ShowMatrix(int n, double[,] a, double[] b, bool free)
         {
-            for (int i = 0; i < n; i++)
+            if (free)
             {
-                for (int j = 0; j < n; j++)
+                for (int i = 0; i < n; i++)
                 {
-                    Console.Write(Convert.ToString(a[i,j]) + " ");
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.Write(Convert.ToString(a[i, j]) + " ");
+                    }
+                    Console.Write(b[i]);
+                    Console.WriteLine();
                 }
-                Console.Write(b[i]);
-                Console.WriteLine();
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.Write(Convert.ToString(a[i, j]) + " ");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
     }
