@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF35E050-3892-4C38-801A-A861EEE9B8DD}</ProjectGuid>
+    <ProjectGuid>{5E85A704-9DD6-4366-B488-AA552247B16B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SLAU</RootNamespace>
-    <AssemblyName>SLAU</AssemblyName>
+    <RootNamespace>ConsoleApp9</RootNamespace>
+    <AssemblyName>ConsoleApp9</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Methods.cs" />
-    <Compile Include="MyMath.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

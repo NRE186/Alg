@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace SLAU
 {
-    class Matrix
+    class MyMath
     {
         public static void ShowMatrix(int n, double[,] a, double[] b, bool free)
         {
             if (free)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Отображение столбца свободных членов включено");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < n; j++)
@@ -24,6 +27,9 @@ namespace SLAU
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Отображение столбца свободных членов отключено");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < n; j++)
@@ -32,6 +38,25 @@ namespace SLAU
                     }
                     Console.WriteLine();
                 }
+            }
+        }
+        public static double Max(double d1, double d2, double d3)
+        {
+            if (d1 > d2)
+            {
+                if (d1 > d3)
+                {
+                    return d1;
+                }
+                else return d3;
+            }
+            else
+            {
+                if (d2 > d3)
+                {
+                    return d2;
+                }
+                else return d3;
             }
         }
     }

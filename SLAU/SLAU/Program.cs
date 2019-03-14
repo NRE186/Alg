@@ -18,11 +18,11 @@ namespace SLAU
             int val = int.Parse(Console.ReadLine());
             if (val == 1)
             {
-                Gauss.GaussMethod(n,a,b);
+                Methods.Gauss(n, a, b);
             }
             else
             {
-                //2 метод
+                Methods.Iter(n, a, b);
             }
             Console.ReadKey();
         }
