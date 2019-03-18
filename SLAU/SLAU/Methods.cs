@@ -8,39 +8,6 @@ namespace SLAU
 {
     class Methods
     {
-        public static void Gauss(int n, double[,] a, double[] b)
-        {
-            Console.WriteLine("Метод Гаусса");
-            double s = 0;
-            double[] x = new double[n];
-            for (int i = 0; i < n; i++)
-                x[i] = 0;
-            MyMath.ShowMatrix(n, a, b, false);
-            for (int k = 0; k < n - 1; k++)
-            {
-                for (int i = k + 1; i < n; i++)
-                {
-                    for (int j = k + 1; j < n; j++)
-                    {
-                        a[i, j] = a[i, j] - a[k, j] * (a[i, k] / a[k, k]);
-                    }
-                    b[i] = b[i] - b[k] * a[i, k] / a[k, k];
-                }
-            }
-            MyMath.ShowMatrix(n, a, b, false);
-            for (int k = n - 1; k >= 0; k--)
-            {
-                s = 0;
-                for (int j = k + 1; j < n; j++)
-                    s = s + a[k, j] * x[j];
-                x[k] = (b[k] - s) / a[k, k];
-            }
-            Console.WriteLine("Система имеет следующие корни");
-            for (int i = 0; i < x.Length; i++)
-            {
-                Console.WriteLine("x" + (i + 1) + " = " + x[i]);
-            }
-        }
         public static void Iter(int n, double[,] a, double[] b)
         {
             Console.WriteLine("Метод простых итераций");
@@ -61,7 +28,67 @@ namespace SLAU
                 }
             }
             MyMath.ShowMatrix(n,a,b,true);
-
+        }
+        public static void Kramer(int n, double[,] a, double[] b)
+        {
+            int k = 0;
+            double[,] delta = a;
+            double[,] deltax1 = new double[n,n];
+            double[,] deltax2 = new double[n, n]; 
+            double[,] deltax3 = new double[n, n]; 
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if ((i == 0 && j == 0) || (i == 1 && j == 0) || (i == 2 && j == 0))
+                    {
+                        deltax1[i, j] = b[k];
+                        k++;
+                    }
+                    else
+                    {
+                        deltax1[i, j] = a[i, j];
+                    }
+                }
+            }
+            k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if ((i == 0 && j == 1) || (i == 1 && j == 1) || (i == 2 && j == 1))
+                    {
+                        deltax2[i, j] = b[k];
+                        k++;
+                    }
+                    else
+                    {
+                        deltax2[i, j] = a[i, j];
+                    }
+                }
+            }
+            k = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if ((i == 0 && j == 2) || (i == 1 && j == 2) || (i == 2 && j == 2))
+                    {
+                        deltax3[i, j] = b[k];
+                        k++;
+                    }
+                    else
+                    {
+                        deltax3[i, j] = a[i, j];
+                    }
+                }
+            }
+            MyMath.ShowMatrixDelta(n, delta);
+            double[] x = new double[n];
+            x[0] = (MyMath.Det(deltax1) / MyMath.Det(delta));
+            x[1] = (MyMath.Det(deltax2) / MyMath.Det(delta));
+            x[2] = (MyMath.Det(deltax3) / MyMath.Det(delta));
+            Console.WriteLine(x[0] + " " + x[1] + " " + x[2]);
         }
     }
 }
