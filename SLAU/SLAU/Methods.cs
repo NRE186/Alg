@@ -20,12 +20,15 @@ namespace SLAU
             //Замена 1 и 3 строк матрицы между собой
             while (!(Math.Abs(a[0, 0]) > Math.Abs(a[0, 1]) + Math.Abs(a[0, 2]) && Math.Abs(a[1, 1]) > Math.Abs(a[1, 0]) + Math.Abs(a[1, 2]) && Math.Abs(a[2, 2]) > Math.Abs(a[2, 0]) + Math.Abs(a[2, 1])))
             {
-                for (int j = 0; j < n; j++)
-                {
-                    tmp[0, j] = a[0, j];
-                    a[0, j] = a[2, j];
-                    a[2, j] = tmp[0, j];
-                }
+                double koef = 3.5; //[0.75;3.5]
+                a[2,0] = (a[0,0] - a[2,0]) * koef;
+                a[2,1] = (a[0,1] - a[2,1]) * koef;
+                a[2,2] = (a[0,2] - a[2,2]) * koef;
+                b[2] = (b[0] - b[2]) * koef;
+                a[0,0] = (a[0, 0] - a[2,0]) * koef;
+                a[0,1] = (a[0,1] - a[2,1]) * koef;
+                a[0,2] = (a[0,2] - a[2,2]) * koef;
+                b[0] = (b[0] - b[2]) * koef;
             }
             MyMath.ShowMatrix(n,a,b,true);
         }

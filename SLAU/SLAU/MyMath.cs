@@ -40,25 +40,7 @@ namespace SLAU
                 }
             }
         }
-        public static double Max(double d1, double d2, double d3)
-        {
-            if (d1 > d2)
-            {
-                if (d1 > d3)
-                {
-                    return d1;
-                }
-                else return d3;
-            }
-            else
-            {
-                if (d2 > d3)
-                {
-                    return d2;
-                }
-                else return d3;
-            }
-        }
+
         public static void ShowMatrixDelta(int n, double[,] a)
         {
             for (int i = 0; i < n; i++)
@@ -78,3 +60,4 @@ namespace SLAU
         }
     }
 }
+
