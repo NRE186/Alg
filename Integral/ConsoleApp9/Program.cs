@@ -12,17 +12,8 @@ namespace ConsoleApp9
         {
             double a = 0;
             double b = 2 * Math.PI;
-            Console.WriteLine("Неизвестный метод :D");
-            double d, y, res = 0;
             double step = 0.000001;
             int k = 0;
-            for (double x = 0; x <= b; x += step)
-            {
-                y = F(x);// подинтегральная функция
-                res += y * step; // Элементарное приращение
-                k++;
-            }
-            Console.WriteLine(Math.Round(res, 4) + " " + k);
             Console.WriteLine("Метод Симпсона");
             double S = 0, x1, h;
             //отрезок [a, b] разобьем на N частей
@@ -42,12 +33,23 @@ namespace ConsoleApp9
 
 
             double result1 = 0, result3 = 0;
+            k = 0;
             for (double x = a; x < b; x += step)
             {
+                /* Метод прямоугольников
+                 * эта область разбивается на несколько прямоугольников(зависит от шага) и считается сумма их площадей: 
+                 * как ширина * высота  ширина - это шаг, высота левая высота(а, а+h, a+2h...b-h) высота = f(x) - подинтегральная функция 
+                 * 
+                 * Метод трапеций
+                 * область разбивается на трапеции. площадь: (левая_высота+правая_высота)*шаг/2              
+                 * 
+                 */
+
                 result1 += F(x) * step;          //левых прямоугольников
                 result3 += step * (F(x) + F(x + step)) / 2;   //трапеций
+                k++;
             }
-            Console.WriteLine(Math.Round(result1,4) + " " + Math.Round(result3,4));
+            Console.WriteLine(Math.Round(result1,4) + " " + Math.Round(result3,4) + " " + k);
             Console.ReadLine();
             
             double F(double x)
