@@ -12,13 +12,17 @@ namespace ConsoleApp9
         {
             double d, y, res = 0;
             d = 0.0001;
-            for (Double x = 0; x <= 2 * Math.PI; x += d)
+            for (double x = 0; x <= 2 * Math.PI; x += d)
             {
-                y = x * Math.Sin(x / 2);// подинтегральная функция
+                y = F(x);// подинтегральная функция
                 res += y * d; // Элементарное приращение
             }
             Console.WriteLine(Math.Round(res, 4));
             Console.ReadLine();
+            double F(double x)
+            {
+                return x * Math.Sin(x / 2);
+            }
         }
     }
 }

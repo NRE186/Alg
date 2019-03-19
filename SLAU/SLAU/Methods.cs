@@ -20,7 +20,7 @@ namespace SLAU
             //Замена 1 и 3 строк матрицы между собой
             while (!(Math.Abs(a[0, 0]) > Math.Abs(a[0, 1]) + Math.Abs(a[0, 2]) && Math.Abs(a[1, 1]) > Math.Abs(a[1, 0]) + Math.Abs(a[1, 2]) && Math.Abs(a[2, 2]) > Math.Abs(a[2, 0]) + Math.Abs(a[2, 1])))
             {
-                double koef = 3.5; //[0.75;3.5]
+                double koef = 1.5; //[0.75;3.5]
                 a[2,0] = (a[0,0] - a[2,0]) * koef;
                 a[2,1] = (a[0,1] - a[2,1]) * koef;
                 a[2,2] = (a[0,2] - a[2,2]) * koef;
