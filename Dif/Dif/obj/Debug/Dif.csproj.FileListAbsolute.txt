@@ -1,0 +1,7 @@
+W:\C#\Alg\Dif\Dif\obj\Debug\Dif.csprojAssemblyReference.cache
+W:\C#\Alg\Dif\Dif\obj\Debug\Dif.csproj.CoreCompileInputs.cache
+W:\C#\Alg\Dif\Dif\bin\Debug\Dif.exe.config
+W:\C#\Alg\Dif\Dif\bin\Debug\Dif.exe
+W:\C#\Alg\Dif\Dif\bin\Debug\Dif.pdb
+W:\C#\Alg\Dif\Dif\obj\Debug\Dif.exe
+W:\C#\Alg\Dif\Dif\obj\Debug\Dif.pdb

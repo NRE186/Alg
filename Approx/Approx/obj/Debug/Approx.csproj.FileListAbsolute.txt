@@ -1,0 +1,7 @@
+W:\C#\Alg\Approx\Approx\bin\Debug\Approx.exe.config
+W:\C#\Alg\Approx\Approx\bin\Debug\Approx.exe
+W:\C#\Alg\Approx\Approx\bin\Debug\Approx.pdb
+W:\C#\Alg\Approx\Approx\obj\Debug\Approx.csprojAssemblyReference.cache
+W:\C#\Alg\Approx\Approx\obj\Debug\Approx.csproj.CoreCompileInputs.cache
+W:\C#\Alg\Approx\Approx\obj\Debug\Approx.exe
+W:\C#\Alg\Approx\Approx\obj\Debug\Approx.pdb

@@ -10,10 +10,9 @@ namespace ConsoleApp9
     {
         static void Main(string[] args)
         {
-            double a = 0;
-            double b = 2 * Math.PI;
-            double step = 0.000001;
-            int k = 0;
+            double a = 0.4;
+            double b = 2.2;
+            double step = 0.0001;
             Console.WriteLine("Метод Симпсона");
             double S = 0, x1, h;
             //отрезок [a, b] разобьем на N частей
@@ -29,11 +28,10 @@ namespace ConsoleApp9
                 x1 = x1 + h;
             }
             S = (h / 3) * (S + F(a) + F(b));
-            Console.WriteLine(Math.Round(S, 4));
+            Console.WriteLine(S);
 
 
             double result1 = 0, result3 = 0;
-            k = 0;
             for (double x = a; x < b; x += step)
             {
                 /* Метод прямоугольников
@@ -47,14 +45,13 @@ namespace ConsoleApp9
 
                 result1 += F(x) * step;          //левых прямоугольников
                 result3 += step * (F(x) + F(x + step)) / 2;   //трапеций
-                k++;
             }
-            Console.WriteLine(Math.Round(result1,4) + " " + Math.Round(result3,4) + " " + k);
+            Console.WriteLine(result1 + " " + result3);
             Console.ReadLine();
             
             double F(double x)
             {
-                return x * Math.Sin(x / 2);
+                return (Math.Sin(x)) / (Math.Sqrt(2 * Math.Pow(x,2) + 1));
             }
         }
     }
