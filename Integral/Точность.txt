@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double begin = 0.4;
+            double end = 2.2;
+            double s1, s2;
+            int num = 10;
+            double eps = 0.001;
+            s1 = Integral(begin, end, num);
+            do
+            {
+                s2 = s1;
+                num *= 2;
+                s1 = Integral(begin, end, num);
+            }
+            while (Math.Abs(s1 - s2) > eps);
+            Console.WriteLine(s1);
+
+            Console.ReadKey();
+
+            double Integral(double a, double b, int n)
+            {
+                double S = 0;
+                double h = (b - a) / n;
+                double x1 = a + h;
+                while (x1 < b)
+                {
+                    S = S + 4 * F(x1);
+                    x1 = x1 + h;
+                    //проверяем не вышло ли значение x за пределы полуинтервала [a, b)
+                    if (x1 >= b) break;
+                    S = S + 2 * F(x1);
+                    x1 = x1 + h;
+                }
+                S = (h / 3) * (S + F(a) + F(b));
+                return S;
+            }
+            double F(double x)
+            {
+                return (Math.Sin(x)) / (Math.Sqrt(2 * Math.Pow(x, 2) + 1));
+            }
+        }
+    }
+}

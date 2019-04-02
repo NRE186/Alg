@@ -27,17 +27,17 @@ namespace Dif
                 X1[i] = a + i * h;
                 Y1[i] = Y1[i - 1] + h * F(X1[i - 1], Y1[i - 1]);
                 //Модифицированный метод Эйлера
-                c0 = F(X2[i - 1] ,Y2[i - 1]);
-                c1 = F(X2[i - 1] + h/2, Y2[i - 1] + h/2*c0);
+                c0 = F(X2[i - 1], Y2[i - 1]);
                 X2[i] = X2[i - 1] + h;
-                Y2[i] = Y2[i - 1] + c1 * h;
+                c1 = F(X2[i - 1], Y2[i - 1] + h * c0);
+                Y2[i] = Y2[i - 1] + (h * (c0 + c1)) / 2;
                 //Рунге-Кутты
                 k1 = F(X3[i - 1], Y3[i - 1]);
                 X3[i] = X3[i - 1] + h / 2;
                 k2 = F(X3[i - 1], Y3[i - 1] + h / 2 * k1);
                 k3 = F(X3[i - 1], Y3[i - 1] + h / 2 * k2);
                 X3[i] = X3[i - 1] + h;
-                k4 = F(X3[i - 1], Y3[i - 1] + h / 2 * k3);
+                k4 = F(X3[i - 1], Y3[i - 1] + h * k3);
                 Y3[i] = Y3[i - 1] + h / 6 * (k1 + 2 * k2 + 2 * k3 + k4);
             }
             for (int i = 0; i <= n; i++)
@@ -47,30 +47,30 @@ namespace Dif
             for (int i = 0; i <= n; i++)
             {
                 Console.CursorTop = i;
-                Console.CursorLeft = 10;
+                Console.CursorLeft = 15;
                 Console.WriteLine("Y1[" + i + "]=" + Y1[i] + " ");
             }
             Console.WriteLine();
-            Console.CursorTop = 12;
+            int x = Console.CursorTop;
+            Console.CursorTop = x;
             for (int i = 0; i <= n; i++)
             {
                 Console.WriteLine("X2[" + i + "]=" + X2[i] + " ");
             }
-            int x = 12;
             for (int i = 0; i <= n; i++)
             {
                 Console.CursorTop = x;
-                Console.CursorLeft = 10;
+                Console.CursorLeft = 15;
                 Console.WriteLine("Y2[" + i + "]=" + Y2[i] + " ");
                 x++;
             }
             Console.WriteLine();
-            Console.CursorTop = 24;
+            x = Console.CursorTop;
+            Console.CursorTop = x;
             for (int i = 0; i <= n; i++)
             {
                 Console.WriteLine("X3[" + i + "]=" + X3[i] + " ");
             }
-            x = 24;
             for (int i = 0; i <= n; i++)
             {
                 Console.CursorTop = x;
@@ -80,10 +80,10 @@ namespace Dif
             }
 
             Console.ReadLine();
-            
+
             double F(double X, double Y)
             {
-                return Math.Pow(X,2) - 2 * Y;
+                return Math.Pow(X, 2) - 2 * Y;
             }
         }
     }
