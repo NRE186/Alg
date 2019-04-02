@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a = 0; double b = 1; double h = 0.1; double n = (b - a) / h;
+            double[] s1 = new double[(int)n + 1];
+            double[] s2 = new double[(int)n + 1];
+            double[] etalon = new double[(int)n + 1];
+            double eps = 0.001;
+            etalon = Dif(a, b, n, h);
+            s1 = Dif(a, b, n, h);
+            do
+            {
+                s2 = s1;
+                h *= 0.05;
+                s1 = Dif(a, b, n, h);
+            }
+            while (Math.Abs(s1[(int)n] - s2[(int)n]) > eps);
+            for (int i = 0; i <= n; i++)
+            {
+                Console.WriteLine("Y[" + i + "]=" + s1[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i <= n; i++)
+            {
+                Console.WriteLine("ETALON[" + i + "]=" + etalon[i] + " ");
+            }
+            Console.ReadKey();
+
+            double[] Dif(double begin, double end, double N, double step)
+            {
+                double c0 = 0; double c1 = 0;
+                double[] X = new double[(int)N + 1];
+                double[] res = new double[(int)N + 1];
+                X[0] = a; res[0] = 1;
+                for (int i = 1; i <= n; i++)
+                {
+                    //Модифицированный метод Эйлера
+                    c0 = F(X[i - 1], res[i - 1]);
+                    X[i] = X[i - 1] + step;
+                    c1 = F(X[i - 1], res[i - 1] + step * c0);
+                    res[i] = res[i - 1] + (step * (c0 + c1)) / 2;
+                }
+                return res;
+            }
+
+            double F(double X, double Y)
+            {
+                return Math.Pow(X, 2) - 2 * Y;
+            }
+        }
+    }
+}
