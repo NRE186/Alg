@@ -13,7 +13,7 @@ namespace Sort
             int[] a = new int[n];
             Random rand = new Random();
             for (int i = 0; i < a.Length; i++)
-                a[i] = rand.Next(0,9);
+                a[i] = rand.Next(0,99);
             return a;
         }
     }

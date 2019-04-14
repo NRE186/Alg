@@ -10,7 +10,7 @@ namespace Sort
     {
         public static void WriteArray(int[] arr)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + " ");
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,21 +12,14 @@ namespace Sort
     {
         static void Main(string[] args)
         {
-            //Инициализация переменных
-            int n = 10;
-            int[] arr = new int[n];
-            Timer t = new Timer(TimerCallback, null, 0, 2000);
-
-            arr = BubleSort.Sort(n);
-            ArrWriter.WriteArray(arr);
-            Console.ReadKey();
-        }
-        private static void TimerCallback(Object o)
-        {
-            // Display the date/time when this method got called.
-            Console.WriteLine("In TimerCallback: " + DateTime.Now);
-            // Force a garbage collection to occur for this demo.
-            GC.Collect();
+            int n = 75;
+            SortMethods sort = new SortMethods
+            {
+                N = n
+            };
+            sort.TimSort();
+            Thread.Sleep(1000);
+            Process.Start(Environment.CurrentDirectory + @"\Отчёт\report.txt");
         }
     }
 }
