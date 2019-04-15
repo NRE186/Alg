@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace Sort
 {
     class Utils
     {
+
         //Вычисление minRun
         public int GetMinrun(int n)
         {
@@ -91,6 +93,30 @@ namespace Sort
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public void LeonardHeap(int[] arr, int len, int index)
+        {
+            int lar = index;
+            int l = 2 * index + 1;
+            int r = 2 * index + 2;
+
+            if (l < len && arr[l] > arr[lar])
+                lar = l;
+
+            if (r < len && arr[r] > arr[lar])
+                lar = r;
+
+            if (lar != index)
+            {
+                int swap = arr[index];
+                arr[index] = arr[lar];
+                arr[lar] = swap;
+
+                LeonardHeap(arr, len, lar);
+
+            }
+
         }
     }
 }

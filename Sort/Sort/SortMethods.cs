@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -88,6 +89,42 @@ namespace Sort
             str += ts;
             str += new String('-', N - ts.Length);
             utils.CreateFile(str, res, time.ToString());
+        }
+
+        public void SmoothSortFib()
+        {
+            //Запуск таймера
+            myStopwatch.Start();
+
+            int[] sort = RandomArray(N);
+
+            int len = sort.Length;
+            for (int i = len / 2 - 1; i >= 0; i--)
+                utils.LeonardHeap(sort, len, i);
+
+            //create binary Heap
+            for (int i = len - 1; i >= 0; i--)
+            {
+                int temp = sort[0];
+                sort[0] = sort[i];
+                sort[i] = temp;
+                utils.LeonardHeap(sort, i, 0);
+            }
+            myStopwatch.Stop();
+            Console.WriteLine("Сортировка прошла успешно");
+            //Время выполнения
+            TimeSpan time = myStopwatch.Elapsed;
+
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                time.Hours, time.Minutes, time.Seconds,
+                time.Milliseconds / 10);
+
+            string ts = "SmoothSort ";
+            ts += DateTime.Now.ToLocalTime();
+            string str = new String('-', N - ts.Length);
+            str += ts;
+            str += new String('-', N - ts.Length);
+            utils.CreateFile(str, sort, time.ToString());
         }
     }
 }
