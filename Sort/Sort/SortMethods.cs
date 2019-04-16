@@ -30,9 +30,8 @@ namespace Sort
             while (currentIndex != sort.Length)
             {
                 run.Add(sort[currentIndex]);
-                currentIndex++;
                 run.Add(sort[currentIndex]);
-                currentIndex++;
+                currentIndex += 2;
                 //Проверка следующего элемента за первыми двумя в run'е
                 while (run.Last() < sort[currentIndex + 1] && currentIndex != sort.Length)
                 {
@@ -82,7 +81,7 @@ namespace Sort
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 time.Hours, time.Minutes, time.Seconds,
                 time.Milliseconds / 10);
-            //Вспомогательная функция для записи результатов сортировки в файл
+            //Запись результатов в файл
             string ts = "TimSort ";
             ts += DateTime.Now.ToLocalTime();
             string str = new String('-', N - ts.Length);
@@ -91,7 +90,7 @@ namespace Sort
             utils.CreateFile(str, res, time.ToString());
         }
 
-        public void SmoothSortFib()
+        public void SmoothSort()
         {
             //Запуск таймера
             myStopwatch.Start();
@@ -105,9 +104,9 @@ namespace Sort
             //create binary Heap
             for (int i = len - 1; i >= 0; i--)
             {
-                int temp = sort[0];
+                int tmp = sort[0];
                 sort[0] = sort[i];
-                sort[i] = temp;
+                sort[i] = tmp;
                 utils.LeonardHeap(sort, i, 0);
             }
             myStopwatch.Stop();
@@ -119,11 +118,11 @@ namespace Sort
                 time.Hours, time.Minutes, time.Seconds,
                 time.Milliseconds / 10);
 
-            string ts = "SmoothSort ";
-            ts += DateTime.Now.ToLocalTime();
-            string str = new String('-', N - ts.Length);
-            str += ts;
-            str += new String('-', N - ts.Length);
+            string ss = "SmoothSort ";
+            ss += DateTime.Now.ToLocalTime();
+            string str = new String('-', N - ss.Length);
+            str += ss;
+            str += new String('-', N - ss.Length);
             utils.CreateFile(str, sort, time.ToString());
         }
     }

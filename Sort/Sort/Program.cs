@@ -18,7 +18,7 @@ namespace Sort
                 N = n
             };
             sort.TimSort();
-            sort.SmoothSortFib();
+            sort.SmoothSort();
             Thread.Sleep(1000);
             Process.Start(Environment.CurrentDirectory + @"\Отчёт\report.txt");
         }

@@ -10,7 +10,7 @@ namespace Dif
     {
         static void Main(string[] args)
         {
-            double a = 0; double b = 1; double h = 0.1; double c0 = 0; double c1 = 0; double k1 = 0; double k2 = 0; double k3 = 0; double k4 = 0;
+            double a = -1; double b = 1; double h = 0.1; double c0 = 0; double c1 = 0; double k1 = 0; double k2 = 0; double k3 = 0; double k4 = 0;
             double n = (b - a) / h;
             double[] X1 = new double[(int)n + 1];
             double[] Y1 = new double[(int)n + 1];
@@ -83,7 +83,7 @@ namespace Dif
 
             double F(double X, double Y)
             {
-                return Math.Pow(X, 2) - 2 * Y;
+                return 4 * Math.Pow(X + 2 * Y, 2) - Math.Pow(X - 2 * Y, 2);
             }
         }
     }

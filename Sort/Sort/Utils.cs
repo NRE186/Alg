@@ -69,7 +69,7 @@ namespace Sort
 
             return c;
         }
-
+        //Функция для создания файла, в который записываются результаты сортировки
         public void CreateFile(string text ,int[] array, string time)
         {
             string path = @"Отчёт\";
@@ -94,7 +94,7 @@ namespace Sort
                 Console.WriteLine(e.Message);
             }
         }
-
+        //Кучи Леонардо
         public void LeonardHeap(int[] arr, int len, int index)
         {
             int lar = index;
@@ -109,14 +109,12 @@ namespace Sort
 
             if (lar != index)
             {
-                int swap = arr[index];
+                int tmp = arr[index];
                 arr[index] = arr[lar];
-                arr[lar] = swap;
+                arr[lar] = tmp;
 
                 LeonardHeap(arr, len, lar);
-
             }
-
         }
     }
 }
